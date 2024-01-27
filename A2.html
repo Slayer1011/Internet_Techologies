@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .glow-button:hover {
+            color: lawngreen;
+            box-shadow: 0 5px 15px white;
+        }
+
+        .button {
+            background-color: blueviolet;
+            border-radius: 4px;
+            color: whitesmoke;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* Make the input box bigger */
+        .input-field {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <title>Largest Integer</title>
+</head>
+
+<body style="text-align: center; background-color: black; color: lawngreen; font-size: 200%">
+    <h1>Largest Integer Finder</h1>
+    Enter three integers to find the largest:<br>
+
+    <!-- Input fields for three integers -->
+    <input class="input-field" type="text" id="num1" placeholder="Enter first integer">
+    <input class="input-field" type="text" id="num2" placeholder="Enter second integer">
+    <input class="input-field" type="text" id="num3" placeholder="Enter third integer">
+
+    <br><br>
+    <button class="button glow-button" onclick="findLargest()">Find Largest</button>
+    <p id="result"></p><br>
+
+    <script>
+        function findLargest() {
+            var num1 = parseInt(document.getElementById("num1").value);
+            var num2 = parseInt(document.getElementById("num2").value);
+            var num3 = parseInt(document.getElementById("num3").value);
+
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                document.getElementById("result").innerHTML = "Please enter valid integers.";
+                return;
+            }
+
+            var largest = Math.max(num1, num2, num3);
+            document.getElementById("result").innerHTML = "The largest integer is: " + largest;
+        }
+    </script>
+</body>
+
+</html>

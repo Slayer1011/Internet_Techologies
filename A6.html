@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Copy the styles from the previous HTML file here */
+    </style>
+    <title>Number Counting</title>
+</head>
+
+<body bgcolor="black" style="color: lawngreen; font-size: 18px; text-align: center;">
+    <h1>Number Counting</h1>
+
+    <p>Enter a list of numbers separated by commas:</p>
+    <input class="input-field" type="text" id="numberList">
+    <button class="button glow-button" onclick="countNumbers()">Count Numbers</button>
+
+    <p>Positive Numbers: <span id="positiveCount"></span></p>
+    <p>Negative Numbers: <span id="negativeCount"></span></p>
+    <p>Zeros: <span id="zeroCount"></span></p>
+
+    <script>
+        function countNumbers() {
+            const numberList = document.getElementById("numberList").value;
+            const numbers = numberList.split(",").map(Number);
+
+            let positiveCount = 0;
+            let negativeCount = 0;
+            let zeroCount = 0;
+
+            for (const number of numbers) {
+                if (number > 0) {
+                    positiveCount++;
+                } else if (number < 0) {
+                    negativeCount++;
+                } else {
+                    zeroCount++;
+                }
+            }
+
+            document.getElementById("positiveCount").textContent = positiveCount;
+            document.getElementById("negativeCount").textContent = negativeCount;
+            document.getElementById("zeroCount").textContent = zeroCount;
+        }
+    </script>
+</body>
+
+</html>

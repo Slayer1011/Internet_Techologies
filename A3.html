@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <style>
+      .glow-button:hover {
+         color: lawngreen;
+         box-shadow: 0 5px 15px white;
+      }
+
+      .button {
+         background-color: blueviolet;
+         border-radius: 4px;
+         color: whitesmoke;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+      }
+
+      /* Make the input box bigger */
+      #num {
+         width: 200px;
+         padding: 10px;
+         font-size: 16px;
+      }
+   </style>
+   <title>factorial</title>
+</head>
+
+<body style="text-align: center; background-color: black; color: lawngreen; font-size: 200%">
+   <h1>factorial Calculator</h1>
+   Enter a number to calculate factorial<br>
+   <input id="num"><br><br>
+   <button class="button glow-button" onclick="fact()">Click here to display factorial</button>
+   <p id="res"></p><br>
+   <script>
+      function fact() {
+         var i, num, f;
+         f = 1;
+         num = document.getElementById("num").value;
+         for (i = 1; i <= num; i++) {
+            f = f * i;
+         }
+         i = i - 1;
+         document.getElementById("res").innerHTML = "factorial is" + "  " + f;
+      }
+   </script>
+</body>
+
+</html>

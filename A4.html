@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .glow-button:hover {
+            color: #000;
+            box-shadow: 0 5px 15px lightcyan;
+        }
+
+        .button {
+            background-color: lightcyan;
+            border-radius: 4px;
+            color: #000;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .input-field {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <title>Sum and Average Calculator</title>
+</head>
+
+<body bgcolor="black" style="color: lawngreen; font-size: 18px; text-align: center;">
+    <h1>Sum and Average Calculator</h1>
+
+    <p>Enter a positive number and click on Add Number: </br>
+        Enter a 0 to terminate
+    </p>
+    <input class="input-field" type="number" id="numberInput">
+    <button class="button glow-button" onclick="calculate()">Add Number</button>
+
+    <p>Numbers entered: <span id="numbersEntered"></span></p>
+    <p>Sum: <span id="sum"></span></p>
+    <p>Average: <span id="average"></span></p>
+
+    <script>
+        let numbers = [];
+
+        function calculate() {
+            const numberInput = document.getElementById("numberInput");
+            const inputValue = parseInt(numberInput.value);
+
+            if (inputValue === 0) {
+                calculateSumAndAverage();
+            } else if (!isNaN(inputValue) && inputValue > 0) {
+                numbers.push(inputValue);
+                numberInput.value = "";
+                updateNumbersEntered();
+            } else {
+                alert("Please enter a valid positive number.");
+            }
+        }
+
+        function calculateSumAndAverage() {
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            const average = sum / numbers.length;
+
+            document.getElementById("sum").textContent = sum;
+            document.getElementById("average").textContent = average.toFixed(2);
+        }
+
+        function updateNumbersEntered() {
+            document.getElementById("numbersEntered").textContent = numbers.join(", ");
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>assignment no 1 </title>
+</head>
+
+<body style="background-color:black ;color:whitesmoke;font-size:100%;">
+    <h1>number table </h1>
+    <script>
+        //var table="<table><tr><th>Number</th><th>squares</th><th>Cubes</th></tr>";
+        function display() {
+            var a = " ";
+            var headings = "num" + "\tsquares " + "\tcubes"
+            for (var i = 5; i <= 15; i++) {
+                a += "\n " + (i) + "\t" + (i * i) + "\t" + (i * i * i);
+            }
+            alert(headings + a);
+        }
+    </script>
+    <input type="button" onclick="display()" value="display">
+</body>
+
+</html>
